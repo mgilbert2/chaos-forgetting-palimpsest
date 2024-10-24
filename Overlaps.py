@@ -1,11 +1,10 @@
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
 
 
-file_path = 'C:/Users/Mak/Pereira-Obilinovic/chaos-forgetting-palimpsest/retrieval_N_0K_seed_42_tau_1.5_A_0.8_p_1.p'
+file_path = 'retrieval_N_0K_seed_42_tau_1.5_A_0.8_p_1.p'
 with open(file_path, 'rb') as f:
     results = pickle.load(f)
 
@@ -58,4 +57,4 @@ df_overlaps['Time Step'] = df_overlaps.index
 df_overlaps = df_overlaps[['Time Step'] + [f'Pattern {i+1}' for i in range(overlaps.shape[1])]]
 
 print(df_overlaps)
-df_overlaps.to_excel('overlaps_dataframe.xlsx', index=False)
+# df_overlaps.to_excel('overlaps_dataframe.xlsx', index=False)

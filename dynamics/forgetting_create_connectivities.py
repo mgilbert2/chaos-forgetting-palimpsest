@@ -10,7 +10,6 @@ amp = float(sys.argv[2])
 tau_pal =  float(sys.argv[3])
 N = int(sys.argv[4])
 
-
 parameters_values = dict(
         seed = tag, #random seed
         N = N, #number of neurons

@@ -44,7 +44,7 @@ parameters_values = dict(
         indexes_neurons = np.array([range(100)]) #neuron dynamics saved
         )
 
-path = '/scratch/upo201/memory_and_chaos/matrices/forgetting/'
+path = './'
 
 A = str(round(parameters_values['amp'], 2))
 N = str(int(parameters_values['N']/1000))

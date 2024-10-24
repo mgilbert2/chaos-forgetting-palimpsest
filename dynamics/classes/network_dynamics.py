@@ -1,12 +1,7 @@
 import numpy as np
-from scipy import sparse 
-from scipy.stats import bernoulli
-from scipy import sparse 
+from scipy import sparse
 from scipy import integrate
 from scipy.optimize import brentq
-
-
-
 
 class TransferFunction:
     '''this class is for different transfer functions'''
