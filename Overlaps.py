@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-file_path = 'retrieval_N_0K_seed_42_tau_1.5_A_0.8_p_1.p'
+file_path = 'retrieval_N_1K_seed_42_tau_1.5_A_0.8_p_1.p'
 with open(file_path, 'rb') as f:
     results = pickle.load(f)
 
@@ -58,3 +58,39 @@ df_overlaps = df_overlaps[['Time Step'] + [f'Pattern {i+1}' for i in range(overl
 
 print(df_overlaps)
 # df_overlaps.to_excel('overlaps_dataframe.xlsx', index=False)
+
+overlaps = np.array(results['dynamics']['q_all']) 
+print(f"Shape of overlaps: {overlaps.shape}") 
+
+
+time_steps = overlaps.shape[0]
+num_patterns = overlaps.shape[1]
+df_overlaps = pd.DataFrame(overlaps, columns=[f'Pattern {i+1}' for i in range(overlaps.shape[1])])
+df_overlaps['Time Step'] = df_overlaps.index
+df_overlaps = df_overlaps[['Time Step'] + [f'Pattern {i+1}' for i in range(overlaps.shape[1])]]
+first_five_patterns = df_overlaps.columns[1:6]  # Patterns 1 to 5
+last_five_patterns = df_overlaps.columns[-5:]   # Last 5 patterns 
+
+plt.figure(figsize=(12, 6))
+for pattern in first_five_patterns:
+    plt.plot(df_overlaps['Time Step'], df_overlaps[pattern], label=pattern, alpha=0.6)
+
+plt.xlabel('Time Steps')
+plt.ylabel('Overlap')
+plt.title('Memory Overlap Over Time for Early Patterns (1-5)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+plt.figure(figsize=(12, 6))
+for pattern in last_five_patterns:
+    plt.plot(df_overlaps['Time Step'], df_overlaps[pattern], label=pattern, alpha=0.6)
+
+plt.xlabel('Time Steps')
+plt.ylabel('Overlap')
+plt.title('Memory Overlap Over Time for Late Patterns')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
