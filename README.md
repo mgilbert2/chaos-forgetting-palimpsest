@@ -10,6 +10,7 @@ This one builds the network. Parameters are:
 - forgetting time scale tau
 - num neurons N
 
+Example: 
 `python dynamics/forgetting_create_connectivities.py 42 0.8 1.5 1000`
 
 # Study forgetting and retrieval
@@ -18,13 +19,15 @@ This retrieves a specific memory, and finds the pickle file using the same conve
 
 There is one additional parameter, the first one, which is a pattern number.
 
+Example:
 `python dynamics/forgetting_retrieve_memory.py 42 1 1.5 0.8 1000`
 
 # Plotting
 
 This one plots the results from the memory one.
 
-`python Overlaps.py`
+Example: 
+` python Overlaps.py 42 0.8 1.5 1000`
 
 # Original README contents
 
