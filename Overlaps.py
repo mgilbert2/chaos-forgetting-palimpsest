@@ -2,13 +2,25 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import sys
 
+parameters_values = dict(
+    seed=int(sys.argv[1]),  # random seed
+    N=int(sys.argv[4]),  # number of neurons
+    tau=float(sys.argv[3]),  # neuron timescale
+    amp=float(sys.argv[2]),
+)
+A = str(round(parameters_values['amp'], 2))
+N = str(int(parameters_values['N']/1000))
+real = str(int(parameters_values['seed']))
+tau = str(round(parameters_values['tau'], 2))
+name = 'retrieval_N_' + N + 'K_seed_'+ real +'_tau_' + tau +'_A_'+ A + '_p_1.p'
+print(name)
 
-file_path = 'retrieval_N_1K_seed_42_tau_1.5_A_0.8_p_1.p'
-with open(file_path, 'rb') as f:
+with open(name, 'rb') as f:
     results = pickle.load(f)
 
-# overlaps  shape is [time_steps, num_patterns])
+# overlaps shape is [time_steps, num_patterns])
 overlaps = np.array(results['dynamics']['q_all'])  # All overlap values between the network’s state and stored memory patterns over time.
 print(f"Shape of overlaps: {overlaps.shape}") 
 
@@ -61,7 +73,6 @@ print(df_overlaps)
 
 overlaps = np.array(results['dynamics']['q_all']) 
 print(f"Shape of overlaps: {overlaps.shape}") 
-
 
 time_steps = overlaps.shape[0]
 num_patterns = overlaps.shape[1]

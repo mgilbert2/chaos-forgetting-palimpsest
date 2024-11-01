@@ -41,7 +41,7 @@ parameters_values = dict(
         indexes_neurons = np.array([0]) #neuron dynamics saved
         )
 
-path = ''#path where connecitivty matrices saved
+path = ''#path where connectivity matrices are saved
 
 A = str(round(parameters_values['amp'], 2))
 N = str(int(parameters_values['N']/1000))
