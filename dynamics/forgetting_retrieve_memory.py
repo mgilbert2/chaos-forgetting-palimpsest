@@ -8,9 +8,9 @@ import os
 
 
 tag = int(sys.argv[1])# tag realization/seed
-p = int(sys.argv[2])#pattern number
-tau = float(sys.argv[3])
-amp =  float(sys.argv[4])
+p = int(sys.argv[2]) #pattern number
+amp =  float(sys.argv[3])
+tau = float(sys.argv[4])
 N = int(sys.argv[5])
 
 parameters_values = dict(

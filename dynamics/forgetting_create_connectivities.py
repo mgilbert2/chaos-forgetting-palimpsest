@@ -5,7 +5,7 @@ from classes.network_dynamics import *
 import sys
 import os
 
-tag = int(sys.argv[1])# tag realization/seed
+tag = int(sys.argv[1]) # tag realization/seed
 amp = float(sys.argv[2])
 tau_pal =  float(sys.argv[3])
 N = int(sys.argv[4])
