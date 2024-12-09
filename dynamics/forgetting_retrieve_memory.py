@@ -5,8 +5,6 @@ from classes.network_dynamics import *
 import sys
 import os
 
-
-
 tag = int(sys.argv[1])# tag realization/seed
 p = int(sys.argv[2]) #pattern number
 amp =  float(sys.argv[3])
@@ -20,8 +18,7 @@ parameters_values = dict(
         
         tau_palimpsest = tau, #time forgetting
         n_tau_palimpsest = 6, #apprimetly infinity, here 6 taus
-	
-        
+
         lr_data = False,
         #parameters learning rule
         amp = amp,
